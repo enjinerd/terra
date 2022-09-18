@@ -1,19 +1,19 @@
-import react from '@vitejs/plugin-react';
-import { readdirSync } from 'fs';
-import path from 'path';
-import { defineConfig } from 'vite';
-import ViteFonts from 'vite-plugin-fonts';
-import { VitePWA } from 'vite-plugin-pwa';
-import tsconfigPaths from 'vite-tsconfig-paths';
+import react from "@vitejs/plugin-react";
+import { readdirSync } from "fs";
+import path from "path";
+import { defineConfig } from "vite";
+import ViteFonts from "vite-plugin-fonts";
+import { VitePWA } from "vite-plugin-pwa";
+import tsconfigPaths from "vite-tsconfig-paths";
 
 // https://stackoverflow.com/questions/69424422/use-compileroptions-baseurl-with-vite-js-project
 const absolutePathAliases = {};
 // Root resources folder
-const srcPath = path.resolve('./src/');
+const srcPath = path.resolve("./src/");
 // Ajust the regex here to include .vue, .js, .jsx, etc.. files from the resources/ folder
 const srcRootContent = readdirSync(srcPath, {
   withFileTypes: true,
-}).map((dirent) => dirent.name.replace(/(\.ts){1}(x?)/, ''));
+}).map((dirent) => dirent.name.replace(/(\.ts){1}(x?)/, ""));
 
 srcRootContent.forEach((directory) => {
   absolutePathAliases[directory] = path.join(srcPath, directory);
@@ -28,11 +28,6 @@ export default defineConfig({
   plugins: [
     react(),
     tsconfigPaths(),
-    ViteFonts({
-      google: {
-        families: ['Plus Jakarta Sans', 'Inter'],
-      },
-    }),
     VitePWA({
       devOptions: {
         enabled: true,
