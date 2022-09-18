@@ -12,6 +12,7 @@ import {
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { IconSun, IconMoonStars } from "@tabler/icons";
+import { useTheme } from "lib";
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -106,9 +107,7 @@ const Nav = ({ links }: HeaderSimpleProps) => {
   const [opened, { toggle }] = useDisclosure(false);
   const [active, setActive] = useState("");
   const { classes, cx } = useStyles();
-  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
-  const dark = colorScheme === "dark";
-
+  const { colorscheme, setColorscheme } = useTheme();
   const items = links.map((link) => (
     <a
       key={link.label}
@@ -128,7 +127,7 @@ const Nav = ({ links }: HeaderSimpleProps) => {
           height={40}
           width={80}
           radius="md"
-          src={colorScheme === "dark" ? "logo-dark.png" : "logo-light.png"}
+          src={colorscheme === "dark" ? "logo-dark.png" : "logo-light.png"}
           alt="brand logo"
         />
         <Group spacing={5} className={classes.links}>
@@ -136,11 +135,11 @@ const Nav = ({ links }: HeaderSimpleProps) => {
         </Group>
         <ActionIcon
           variant="outline"
-          color={dark ? "yellow" : "blue"}
-          onClick={() => toggleColorScheme()}
+          color={colorscheme === "dark" ? "yellow" : "blue"}
+          onClick={() => setColorscheme(colorscheme === "dark" ? "light" : "dark")}
           title="Toggle color scheme"
           className={classes.dark}>
-          {dark ? <IconSun size={18} /> : <IconMoonStars size={18} />}
+          {colorscheme === "dark" ? <IconSun size={18} /> : <IconMoonStars size={18} />}
         </ActionIcon>
         <Burger opened={opened} onClick={toggle} className={classes.burger} size="sm" />
       </Container>
@@ -153,10 +152,10 @@ const Nav = ({ links }: HeaderSimpleProps) => {
           ))}
           <ActionIcon
             variant="outline"
-            color={dark ? "yellow" : "blue"}
-            onClick={() => toggleColorScheme()}
+            color={colorscheme === "dark" ? "yellow" : "blue"}
+            onClick={() => setColorscheme(colorscheme === "dark" ? "light" : "dark")}
             title="Toggle color scheme">
-            {dark ? <IconSun size={18} /> : <IconMoonStars size={18} />}
+            {colorscheme === "dark" ? <IconSun size={18} /> : <IconMoonStars size={18} />}
           </ActionIcon>
         </Group>
       )}

@@ -33,9 +33,12 @@ const useStyles = createStyles((theme) => ({
     [theme.fn.smallerThan("xs")]: {
       marginTop: theme.spacing.xl * 2,
     },
+    [theme.fn.largerThan("xs")]: {
+      marginBottom: theme.spacing.xl,
+    },
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
     fontWeight: 900,
-    color: theme.colorScheme === "dark" ? theme.black : theme.white,
+    color: theme.colors.gray[0],
   },
 
   description: {

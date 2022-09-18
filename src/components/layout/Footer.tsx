@@ -33,7 +33,7 @@ const Footer = () => {
   return (
     <div className={classes.footer}>
       <Container className={classes.inner}>
-        <Text size="sm" color="gray" weight={600}>
+        <Text size="sm" weight={600}>
           {" "}
           ©{new Date().getFullYear()} Roni Ardiyanto. All rights reserved{" "}
         </Text>
