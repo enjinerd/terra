@@ -39,8 +39,8 @@ export const useAuth = create<AuthState>()(
             password,
           });
           if (error) throw error;
+          console.log(user);
           set({ user, session });
-          console.log("REGISTER APPROVED");
         } catch (error) {
           return error;
         }

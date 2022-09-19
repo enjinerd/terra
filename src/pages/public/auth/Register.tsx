@@ -11,36 +11,47 @@ import {
 } from "@mantine/core";
 import { IconAlertCircle } from "@tabler/icons";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Layout from "components/layout/Layout";
 import { useAuth } from "lib";
 
-export function Login() {
-  const { login } = useAuth();
+export function Register() {
+  const { register } = useAuth();
   const [error, setError] = useState(null);
   const [isLoading, setLoading] = useState(false);
+  const [isRegistered, setRegisterd] = useState(false);
 
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
+      passwordConfirm: "",
     },
     validationSchema: Yup.object({
       email: Yup.string().email("Invalid email address").required("Required"),
-      password: Yup.string().required("Required"),
+      password: Yup.string()
+        .required("Required")
+        .min(6, "Password must be at least 6 characters"),
+      passwordConfirm: Yup.string()
+        .oneOf([Yup.ref("password"), null], "Passwords must match")
+        .required("Required"),
     }),
     onSubmit: async (values) => {
       setError(null);
       setLoading(true);
-      await login(values.email, values.password).then((res) => {
+      await register(values.email, values.password).then((res) => {
+        console.log(res);
         if (res?.message) {
           setError(res.message);
           setLoading(false);
         }
       });
+      if (!error) {
+        setRegisterd(true);
+      }
     },
   });
 
@@ -56,9 +67,9 @@ export function Login() {
           Welcome back!
         </Title>
         <Text color="dimmed" size="sm" align="center" mt={5}>
-          Do not have an account yet?{" "}
-          <Link to="/register">
-            <Anchor<"a">>Create account</Anchor>
+          Have an account ?{" "}
+          <Link to="/login">
+            <Anchor<"a">>Login</Anchor>
           </Link>
         </Text>
         {error && (
@@ -69,6 +80,16 @@ export function Login() {
             color="red"
             variant="filled">
             {error}
+          </Alert>
+        )}
+        {isRegistered && (
+          <Alert
+            icon={<IconAlertCircle size={16} />}
+            mt={15}
+            title="Success"
+            color="green"
+            variant="filled">
+            You have successfully registered. Please login to continue.
           </Alert>
         )}
         <Paper withBorder shadow="md" p={30} mt={30} radius="md">
@@ -94,8 +115,19 @@ export function Login() {
               required
               mt="md"
             />
+            <PasswordInput
+              label="Confirm Password"
+              placeholder="Your password"
+              id="passwordConfirm"
+              name="passwordConfirm"
+              onChange={formik.handleChange}
+              value={formik.values.passwordConfirm}
+              error={formik.errors.passwordConfirm}
+              required
+              mt="md"
+            />
             <Button fullWidth mt="xl" type="submit" disabled={isLoading}>
-              Login
+              Register
             </Button>
           </form>
         </Paper>
