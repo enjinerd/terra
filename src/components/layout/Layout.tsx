@@ -4,17 +4,17 @@ import Footer from "./Footer";
 
 const links = {
   links: [
+    // {
+    //   link: "/#features",
+    //   label: "Features",
+    // },
     {
-      link: "#features",
-      label: "Features",
+      link: "/",
+      label: "Home",
     },
     {
-      link: "#faq",
-      label: "FAQ",
-    },
-    {
-      link: "#contact-us",
-      label: "Contact Us",
+      link: "/not-found",
+      label: "Not Found",
     },
   ],
 };
