@@ -8,11 +8,11 @@ import {
   Text,
   Image,
   ActionIcon,
-  useMantineColorScheme,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { IconSun, IconMoonStars } from "@tabler/icons";
 import { useTheme } from "lib";
+import { Link } from "react-router-dom";
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -123,13 +123,15 @@ const Nav = ({ links }: HeaderSimpleProps) => {
   return (
     <Header height={60} mb={120} className={classes.container}>
       <Container className={classes.header}>
-        <Image
-          height={40}
-          width={80}
-          radius="md"
-          src={colorscheme === "dark" ? "logo-dark.png" : "logo-light.png"}
-          alt="brand logo"
-        />
+        <Link to="/">
+          <Image
+            height={40}
+            width={80}
+            radius="md"
+            src={colorscheme === "dark" ? "logo-dark.png" : "logo-light.png"}
+            alt="brand logo"
+          />
+        </Link>
         <Group spacing={5} className={classes.links}>
           {items}
         </Group>

@@ -22,6 +22,7 @@ const useStyles = createStyles((theme) => ({
     borderRadius: theme.radius.md,
     padding: theme.spacing.xl * 2.5,
     paddingTop: theme.spacing.xl * 1,
+    marginTop: theme.spacing.xl * 4,
 
     [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
       padding: theme.spacing.xl * 1.5,
