@@ -99,9 +99,9 @@ export function Hero() {
 
       <div className={classes.inner}>
         <Title className={classes.title}>
-          Automated AI code reviews for{" "}
+          Supercharged React Boilerplate powered with{" "}
           <Text component="span" inherit className={classes.highlight}>
-            any stack
+            Vite
           </Text>
         </Title>
 
