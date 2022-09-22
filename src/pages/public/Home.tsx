@@ -1,5 +1,5 @@
 import Layout from "components/layout/Layout";
-import { Hero, Features, Faq, Contact } from "components/public/home";
+import { Contact, Faq, Features, Hero } from "components/public/home";
 
 export function Home() {
   let featureDetails = {

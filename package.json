@@ -3,11 +3,12 @@
   "author": "roniardynt",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "git:commit": "cz",
+    "git:push": "git push -u origin HEAD"
   },
   "dependencies": {
     "@emotion/react": "^11.10.4",
@@ -26,6 +27,7 @@
     "zustand": "^4.1.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
@@ -36,7 +38,11 @@
     "@types/react-router": "^5.1.19",
     "@types/react-router-dom": "^5.3.3",
     "@typescript-eslint/eslint-plugin": "^5.37.0",
+    "@typescript-eslint/parser": "^5.38.0",
     "@vitejs/plugin-react": "^2.1.0",
+    "commitizen": "^4.2.5",
+    "commitlint-config-gitmoji": "^2.2.5",
+    "cz-customizable": "^7.0.0",
     "eslint": "^8.23.1",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
@@ -45,6 +51,7 @@
     "eslint-plugin-react": "^7.31.8",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-simple-import-sort": "^8.0.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
     "identity-obj-proxy": "^3.0.0",
     "prettier": "^2.7.1",
     "ts-jest": "^29.0.1",
@@ -54,5 +61,10 @@
     "vite-plugin-fonts": "^0.6.0",
     "vite-plugin-pwa": "^0.12.8",
     "vite-tsconfig-paths": "^3.5.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-customizable"
+    }
   }
 }
