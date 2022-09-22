@@ -1,24 +1,20 @@
-import React from "react";
-import { ScrollArea, Navbar, Box, Button } from "@mantine/core";
-
-//User
-import { IconChevronRight, IconChevronLeft, IconLogout } from "@tabler/icons";
-import { UnstyledButton, Group, Avatar, Text, useMantineTheme } from "@mantine/core";
-
-// MainLink
-import {
-  IconGitPullRequest,
-  IconAlertCircle,
-  IconMessages,
-  IconDatabase,
-} from "@tabler/icons";
+import { Box, Button, Navbar, ScrollArea } from "@mantine/core";
+import { Avatar, Group, Text, UnstyledButton, useMantineTheme } from "@mantine/core";
 import { ThemeIcon } from "@mantine/core";
-
 // Brand
 import { ActionIcon, Image } from "@mantine/core";
-import { IconSun, IconMoonStars } from "@tabler/icons";
-
+//User
+import { IconLogout } from "@tabler/icons";
+// MainLink
+import {
+  IconAlertCircle,
+  IconDatabase,
+  IconGitPullRequest,
+  IconMessages,
+} from "@tabler/icons";
+import { IconMoonStars, IconSun } from "@tabler/icons";
 import { useTheme } from "lib";
+import React from "react";
 
 function Brand() {
   const { colorscheme, setColorscheme } = useTheme();
@@ -149,24 +145,6 @@ export function MainLinks() {
   const links = data.map((link) => <MainLink {...link} key={link.label} />);
   return <div>{links}</div>;
 }
-
-const code = `
-import { Navbar, ScrollArea } from '@mantine/core';
-
-function Demo() {
-  return (
-    <Navbar height={600} p="xs" width={{ base: 300 }}>
-      <Navbar.Section mt="xs">{/* Header with logo */}</Navbar.Section>
-
-      <Navbar.Section grow component={ScrollArea} mx="-xs" px="xs">
-        {/* scrollable content here */}
-      </Navbar.Section>
-
-      <Navbar.Section>{/* Footer with user */}</Navbar.Section>
-    </Navbar>
-  );
-}
-`;
 
 export function DashboardA() {
   return (

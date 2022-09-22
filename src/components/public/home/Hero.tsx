@@ -1,4 +1,4 @@
-import { Title, Text, Container, Button, Overlay, createStyles } from "@mantine/core";
+import { Button, Container, createStyles, Overlay, Text, Title } from "@mantine/core";
 import { Link } from "react-router-dom";
 
 const useStyles = createStyles((theme) => ({
@@ -92,7 +92,7 @@ const useStyles = createStyles((theme) => ({
 }));
 
 export function Hero() {
-  const { classes, cx } = useStyles();
+  const { classes } = useStyles();
 
   return (
     <div className={classes.wrapper}>

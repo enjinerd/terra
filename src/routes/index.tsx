@@ -1,8 +1,7 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Dashboard } from "pages/private/Dashboard";
 import { Home, NotFound } from "pages/public";
 import { Login, Register } from "pages/public/auth";
-import Private from "./Private";
-import { Dashboard } from "pages/private/Dashboard";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export default function Router() {
   return (

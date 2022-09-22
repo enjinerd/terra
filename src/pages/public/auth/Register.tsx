@@ -1,22 +1,21 @@
 import {
-  TextInput,
-  PasswordInput,
-  Anchor,
-  Paper,
-  Title,
-  Text,
-  Container,
-  Button,
   Alert,
+  Anchor,
+  Button,
+  Container,
+  Paper,
+  PasswordInput,
+  Text,
+  TextInput,
+  Title,
 } from "@mantine/core";
 import { IconAlertCircle } from "@tabler/icons";
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-
-import { useFormik } from "formik";
-import * as Yup from "yup";
 import Layout from "components/layout/Layout";
+import { useFormik } from "formik";
 import { useAuth } from "lib";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import * as Yup from "yup";
 
 export function Register() {
   const { register } = useAuth();
