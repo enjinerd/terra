@@ -1,0 +1,9 @@
+version: "3.9"
+
+services:
+  web:
+    image: terra:latest
+    expose:
+      - "3000"
+    ports:
+      - "3000:3000"
