@@ -2,14 +2,14 @@
   "compilerOptions": {
     "target": "ESNext",
     "useDefineForClassFields": true,
-    "types": ["vite/client", "jest", "@testing-library/jest-dom"],
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": false,
     "skipLibCheck": true,
-    "esModuleInterop": false,
+    "esModuleInterop": true,
     "baseUrl": "src",
     "allowSyntheticDefaultImports": true,
     "strict": true,
+    "types": ["vite/client"],
     "forceConsistentCasingInFileNames": true,
     "module": "ESNext",
     "moduleResolution": "Node",
@@ -22,6 +22,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src"]
 }
