@@ -1,7 +1,7 @@
 import Layout from "components/layout/Layout";
 import { Contact, Faq, Features, Hero } from "components/public/home";
 
-export function Home() {
+export default function Home() {
   let featureDetails = {
     title: "Integrate effortlessly with any technology stack",
     description:

@@ -2,6 +2,7 @@ import react from "@vitejs/plugin-react";
 import { readdirSync } from "fs";
 import path from "path";
 import { defineConfig } from "vite";
+import IstanbulPlugin from "vite-plugin-istanbul";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 // https://stackoverflow.com/questions/69424422/use-compileroptions-baseurl-with-vite-js-project
@@ -23,8 +24,19 @@ export default defineConfig({
       ...absolutePathAliases,
     },
   },
-  plugins: [react(), tsconfigPaths()],
+  plugins: [
+    react(),
+    tsconfigPaths(),
+    IstanbulPlugin({
+      include: "src/**/*",
+      exclude: ["node_modules", "cypress"],
+      extension: [".ts", ".tsx"],
+      cypress: true,
+      requireEnv: false,
+    }),
+  ],
   build: {
+    sourcemap: true,
     chunkSizeWarningLimit: 2000,
   },
 });
