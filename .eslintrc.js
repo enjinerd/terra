@@ -29,7 +29,8 @@ module.exports = {
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:jsx-a11y/recommended",
-    "plugin:prettier/recommended", // Make sure this is always the last element in the array.
+    "plugin:prettier/recommended",
+    "plugin:cypress/recommended", // Make sure this is always the last element in the array.
   ],
   globals: {
     React: true,
@@ -43,7 +44,7 @@ module.exports = {
     jsdom: true,
     JSX: true,
   },
-  plugins: ["simple-import-sort", "prettier", "unused-imports"],
+  plugins: ["simple-import-sort", "prettier", "unused-imports", "cypress"],
   rules: {
     "prettier/prettier": ["error", {}, { usePrettierrc: true }],
     "react/react-in-jsx-scope": "off",

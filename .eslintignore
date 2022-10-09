@@ -5,3 +5,11 @@ dist-ssr
 *.local
 node_modules/*
 dev-dist
+
+# cypress
+.nyc_output
+coverage
+cypress/screenshots
+cypress/videos
+instrumented
+coverage
